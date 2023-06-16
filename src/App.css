@@ -1,38 +1,98 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.App{
   min-height: 100vh;
+}
+
+i{
+  font-size: 2rem;
+  color: black;
+  cursor:pointer;
+  
+}
+i:hover{
+  color: grey;
+}
+
+.sticky-footer
+{
+  text-align: center;
+  position: sticky;
+  top: 100%;
+}
+
+.dropdown{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border: 1px solid grey;
 }
 
-.App-link {
-  color: #61dafb;
+.dropdown:empty{
+  border:none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dropdown-row{
+  cursor: pointer;
+  text-align: start;
+  margin: 2px 2px;
+}
+
+.GlowingGradientButtonBox
+{
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.GlowingGradientButtonBox button{
+    position: relative;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    background: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+    background-size: 400%;
+    border-radius: 25px;
+    font-weight: bold;
+    box-shadow: 0 2px 2px 2px #000;
+    
+}
+.GlowingGradientButtonBox button:hover
+{
+    animation: animateGlowingGradientButton 8s linear infinite;
+    z-index: 1;
+}
+@keyframes animateGlowingGradientButton
+{
+    0%
+    {
+        background-position: 0%;
+    }
+    100%
+    {
+        background-position: 400%;
+    }
+}
+.GlowingGradientButtonBox button:before
+{
+    content: '';
+    position: absolute;
+    top:-5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    background: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+    background-size: 400%;
+    border-radius: 40px;
+    filter: blur(20px);
+    transition: 0.5s;
+}
+.GlowingGradientButtonBox button:hover:before
+{
+    filter: blur(20px);
+    opacity: 1;
+    animation: animateGlowingGradientButton 8s linear infinite;
 }
